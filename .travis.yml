@@ -1,0 +1,11 @@
+language: python
+python:
+  - "3.6"
+# command to install dependencies
+install:
+  - pip install -Ur requirements.txt
+# command to run tests
+script:
+  - python -m algorithms.triplets_tests -v
+  - python -m algorithms.palindrome_tests -v
+  - python -m design.opool_tests -v
