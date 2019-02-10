@@ -78,7 +78,19 @@ $ python -m design.opool_tests -v
 
 ```zsh
 # Run library
-$ python -m architecture.app
+$ python FLASK_APP=architecture/app flask run
+```
+
+```zsh
+# Short the URL
+$ curl -X PUT "https://warmup-short-url.herokuapp.com/shorten" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"url\": \"http://jorgechato.com\"}"
+
+{"__this": "http://warmup-short-url.herokuapp.com/shorten", "original": "http://jorgechato.com", "short": "http://warmup-short-url.herokuapp.com/rfWfV"}
+
+# Get the original URL
+$ curl -X PUT "https://warmup-short-url.herokuapp.com/original" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"shorted\": \"http://warmup-short-url.herokuapp.com/rfWfV\"}"
+
+{"__this": "http://warmup-short-url.herokuapp.com/original", "original": "http://jorgechato.com", "short": "http://warmup-short-url.herokuapp.com/rfWfV"}
 ```
 
 #### Deploy
